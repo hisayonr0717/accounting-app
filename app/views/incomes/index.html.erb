@@ -1,0 +1,24 @@
+<% @page_tile = "収入科目一覧"%>
+<h3><% @page_tile %></h3>
+
+<% if @incomes.present? %>
+<table>
+	<thead>
+		<tr>
+			<th>科目名</th>
+			<th>備考</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @incomes.each do |income| %>
+			<tr>
+				<td><%= income.name %></td>
+				<td><%= income.description %></td>
+			</tr>	
+		<% end %>
+	</tbody>
+</table>
+
+<% else %>
+	<p>その収入科目は登録されていません</p>
+<% end %>
