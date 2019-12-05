@@ -1,0 +1,8 @@
+<% require 'active_support/core_ext/numeric/conversasions' %>
+<h2>収入科目の新規データ登録</h2>
+<p>登録年月を設定してください</p>
+<%= form_tag({controller: :income_values, action: :new}, {method: :post}) do %>
+  <input type="month" name="year_month">
+  <input type="submit">
+<% end %>
+
