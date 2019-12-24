@@ -1,0 +1,31 @@
+<% @page_title = "収入科目　データ登録" %>
+<h2><%= @page_title %></h2>
+<div class="toolbar"><%= link_to "収入科目データ一覧に戻る", :income_values %></div>
+<%= form_for(form,url: income_values_path, method: :post) do |fb| %>
+
+<table>
+  <tr>
+    <th>登録年月</th>
+    <th>名称</th>
+    <th>値</th>
+    <th>備考</th>
+  </tr>
+  
+  <% cnt=0 %>
+  <%= fb.fields_for :fixedcost_values do |f| %>
+  <%= f.hidden_field :fixedcost_id %>
+  
+  <tr>
+    <td>
+      <%= f.date_select :year_month,
+                        start_year: 2010,
+                        end_year: Time.current.year,
+                        user_month_numbers: true,
+                        discard_day: true %></td>
+    <th><%= @fixedcost.name %></th>
+    <td><%= form.text_field :value %></td>
+    <td><%= form.text_field :description %></td>
+  </tr>
+</table>
+<div><%= form.submit %></div>
+<% end %>
