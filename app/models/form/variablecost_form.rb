@@ -21,6 +21,21 @@ end
   
   def save
     return false unless valid?
-    VariablecostValue.transaction 
+    VariablecostValue.transaction  {
+      self.variablecost_values.select.each {|variablecost_value|
+        a1 = VariablecostValue.new(:variablecost_id => variablecost_value.variablecost_id,
+          :year_month => variablecost_value.year_month,
+          :value => variablecost_value.value,
+          :description => variablecost_value.description)
+        a1.save!
+      }
+    }
+    true
+  end
   
+  def target_variablecost_values
+    self.variablecost_values.select { |v| '*'}
+  end
 end
+
+    
