@@ -2,7 +2,7 @@
 
 <h2>変動費用科目のデータ登録</h2>
 <p>登録年月を設定してください</p>
-<%= form_tag({controller: :valid_variablecost_values, action: :new}, {method: :post}) do %>
+<%= form_tag({controller: :variablecost_values, action: :new}, {method: :post}) do %>
   <input type="month" name="year_month">
   <input type="submit">
 <% end %>
@@ -16,7 +16,7 @@
     <th>名称</th>
     <th>値</th>
     <th>備考</th>
-      <th>備考</th>
+   
   </tr>
     <% @variablecost_values.each do |variablecost_value| %>
     <tr>

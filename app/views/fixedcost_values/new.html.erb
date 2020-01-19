@@ -1,7 +1,7 @@
-<% @page_title = "収入科目 データ登録" %>
+<% @page_title = "固定費科目 データ登録" %>
 <h2><%= @page_title %></h2>
-<div class="toolbar"><%= link_to "収入科目データ一覧に戻る", :income_values %></div>
-<%= form_for(@form, url: income_values_path, method: :post) do |fb| %>
+<div class="toolbar"><%= link_to "固定費科目データ一覧に戻る", :fixedcost_values %></div>
+<%= form_for(@form, url: fixedcost_values_path, method: :post) do |fb| %>
 
 <!-- 年月テーブル -->
 <table>
@@ -13,8 +13,8 @@
   </tr>
 
   <% cnt=0 %>
-  <%= fb.fields_for :income_values do |f| %>
-  <%= f.hidden_field :income_id %>
+  <%= fb.fields_for :fixedcost_values do |f| %>
+  <%= f.hidden_field :fixedcost_id %>
 
  <tr>
 		<td>
@@ -25,12 +25,11 @@
     </td>
 
    <th>
-    <%= @incomes.find(@form.income_values[cnt].income_id).name %>
+    <%= @fixedcosts.find(@form.fixedcost_values[cnt].fixedcost_id).name %>
     </th>
-    <% cnt+=1 %>
-    <td><%= f.text_field :value, size: 8 %></td>
+    <td><%= f.text_field :value, size: 8 %>円</td>
     <td><%= f.text_field :description, size: 8 %></td>
-
+    <% cnt+=1 %>
  </tr>
 <% end %>
 </table>
