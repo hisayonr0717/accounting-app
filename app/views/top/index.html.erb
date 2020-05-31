@@ -1,24 +1,23 @@
-<h1>Kaikei</h1>
-<p>わかりやすい会計帳簿アプリです</p>
+<h1>Kakeibo</h1>
+<p>シンプルで使いやすい会計帳簿アプリです</p>
 
 <h2>科目設定</h2>
 <ul>
   <li><%= link_to "収入科目設定", :incomes %></li>
 </ul>
 <ul>
-	<li><%= link_to "固定費科目設定", :fixedcosts %></li>
+	<li><%= link_to "費用科目設定", :fixedcosts %></li>
 </ul>
-<ul>
-	<li><%= link_to "変動費科目設定", :variablecosts %></li>
-</ul>
+
 
 <h2>収支登録</h2>
 <ul>
 	<li><%= link_to "収入金額登録", :income_values %></li>
 </ul>
 <ul>
-	<li><%= link_to "固定費金額登録", :fixedcost_values %></li>
+	<li><%= link_to "費用金額登録", :fixedcost_values %></li>
 </ul>
+<h2>収支確認</h2>
 <ul>
-	<li><%= link_to "変動費金額登録", :variablecost_values %></li>
+	<li><%= link_to "収支確認画面", balance_confirm_path %></li>
 </ul>
